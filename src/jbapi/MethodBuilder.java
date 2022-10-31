@@ -8,6 +8,7 @@ public class MethodBuilder
     }
 
     private String name;
+    private Modifier[] modifiers;
 
     private MethodBuilder()
     {
@@ -17,6 +18,12 @@ public class MethodBuilder
     public MethodBuilder name(String name)
     {
         this.name = name;
+        return this;
+    }
+
+    public MethodBuilder modifiers(Modifier ... modifiers)
+    {
+        this.modifiers = modifiers;
         return this;
     }
 }
