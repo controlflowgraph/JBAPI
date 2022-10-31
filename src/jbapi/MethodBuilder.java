@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static jbapi.TypeUtil.arg;
+import static jbapi.TypeUtil.type;
 
 public class MethodBuilder
 {
@@ -24,6 +25,11 @@ public class MethodBuilder
     private MethodBuilder()
     {
 
+    }
+
+    public MethodBuilder result(Class<?> cls)
+    {
+        return result(type(cls));
     }
 
     public MethodBuilder result(String type)
