@@ -9,6 +9,7 @@ public class ClassBuilder
 
     private int version;
     private String name;
+    private Modifier[] modifiers;
 
     private ClassBuilder()
     {
@@ -24,6 +25,12 @@ public class ClassBuilder
     public ClassBuilder name(String name)
     {
         this.name = name;
+        return this;
+    }
+
+    public ClassBuilder modifiers(Modifier ... modifiers)
+    {
+        this.modifiers = modifiers;
         return this;
     }
 }
