@@ -64,6 +64,10 @@ public class CodeBuilder
                 String type = i.arguments().getAs(String.class, 2);
                 method.visitFieldInsn(GETSTATIC, cls, name, type);
             }
+            case "load-string-constant" -> {
+                String value = i.arguments().getAs(String.class, 0);
+                method.visitLdcInsn(value);
+            }
             default -> throw new RuntimeException("Unknown instruction '" + i.mnemonic() + "'!");
         }});
     }
