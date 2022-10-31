@@ -58,7 +58,12 @@ public class CodeBuilder
         method.visitCode();
         this.instructions.forEach(i -> { switch (i.mnemonic())
         {
-            case "" -> {}
+            case "getstatic" -> {
+                String cls = i.arguments().getAs(String.class, 0);
+                String name = i.arguments().getAs(String.class, 1);
+                String type = i.arguments().getAs(String.class, 2);
+                method.visitFieldInsn(GETSTATIC, cls, name, type);
+            }
             default -> throw new RuntimeException("Unknown instruction '" + i.mnemonic() + "'!");
         }});
     }
