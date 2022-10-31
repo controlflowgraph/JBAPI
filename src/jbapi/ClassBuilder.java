@@ -10,6 +10,7 @@ public class ClassBuilder
     private int version;
     private String name;
     private Modifier[] modifiers;
+    private String[] interfaces;
 
     private ClassBuilder()
     {
@@ -31,6 +32,12 @@ public class ClassBuilder
     public ClassBuilder modifiers(Modifier ... modifiers)
     {
         this.modifiers = modifiers;
+        return this;
+    }
+
+    public ClassBuilder interfaces(String ... name)
+    {
+        this.interfaces = name;
         return this;
     }
 }
