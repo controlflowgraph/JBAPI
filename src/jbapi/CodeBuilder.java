@@ -47,6 +47,11 @@ public class CodeBuilder
         return this;
     }
 
+    public CodeBuilder special(String cls, String name, String signature)
+    {
+        return add("invoke-special", cls, name, signature);
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
