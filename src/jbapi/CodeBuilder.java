@@ -27,6 +27,11 @@ public class CodeBuilder
         return add("load-string-constant", value);
     }
 
+    public CodeBuilder call(String cls, String name, String signature)
+    {
+        return add("invoke-virtual", cls, name, signature);
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
