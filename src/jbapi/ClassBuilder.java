@@ -82,7 +82,7 @@ public class ClassBuilder
     {
         ClassWriter writer = new ClassWriter(ClassWriter.COMPUTE_FRAMES + ClassWriter.COMPUTE_MAXS);
         int mod = Modifier.merge(this.modifiers) | 32;
-        writer.visit(63, mod, this.name, null, this.extending, this.interfaces);
+        writer.visit(this.version, mod, this.name, null, this.extending, this.interfaces);
         this.fields.forEach(f -> f.generate(writer));
         this.methods.forEach(m -> m.generate(writer));
         return writer.toByteArray();
