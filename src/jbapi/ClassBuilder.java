@@ -16,6 +16,7 @@ public class ClassBuilder
     private Modifier[] modifiers;
     private String[] interfaces;
     private final List<FieldBuilder> fields = new ArrayList<>();
+    private final List<MethodBuilder> methods = new ArrayList<>();
 
     private ClassBuilder()
     {
@@ -55,5 +56,12 @@ public class ClassBuilder
     public FieldBuilder field()
     {
         return FieldBuilder.builder();
+    }
+
+    public MethodBuilder method()
+    {
+        MethodBuilder builder = MethodBuilder.builder();
+        this.methods.add(builder);
+        return builder;
     }
 }
