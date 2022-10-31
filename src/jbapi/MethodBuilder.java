@@ -8,11 +8,18 @@ public class MethodBuilder
     }
 
     private String name;
+    private String result;
     private Modifier[] modifiers;
 
     private MethodBuilder()
     {
 
+    }
+
+    public MethodBuilder result(String type)
+    {
+        this.result = type;
+        return this;
     }
 
     public MethodBuilder name(String name)
