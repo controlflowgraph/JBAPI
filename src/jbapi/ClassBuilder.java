@@ -55,7 +55,9 @@ public class ClassBuilder
 
     public FieldBuilder field()
     {
-        return FieldBuilder.builder();
+        FieldBuilder builder = FieldBuilder.builder();
+        this.fields.add(builder);
+        return builder;
     }
 
     public MethodBuilder method()
