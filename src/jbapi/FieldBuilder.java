@@ -1,5 +1,7 @@
 package jbapi;
 
+import org.objectweb.asm.ClassWriter;
+
 public class FieldBuilder
 {
     public static FieldBuilder builder()
@@ -32,5 +34,12 @@ public class FieldBuilder
     {
         this.modifiers = modifiers;
         return this;
+    }
+
+    public void generate(ClassWriter writer)
+    {
+        int mod = Modifier.merge(this.modifiers);
+        writer.visitField(mod, this.name, this.type, null, null)
+                .visitEnd();
     }
 }
