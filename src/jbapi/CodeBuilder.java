@@ -81,6 +81,7 @@ public class CodeBuilder
                 method.visitMethodInsn(INVOKEVIRTUAL, cls, name, signature);
             }
             case "return" -> method.visitInsn(RETURN);
+            case "aload" -> method.visitVarInsn(ALOAD, i.arguments().getAs(Integer.class, 0));
             default -> throw new RuntimeException("Unknown instruction '" + i.mnemonic() + "'!");
         }});
     }
