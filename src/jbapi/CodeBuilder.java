@@ -17,6 +17,11 @@ public class CodeBuilder
 
     }
 
+    public CodeBuilder getStatic(String cls, String field, String type)
+    {
+        return add("getstatic", cls, field, type);
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
