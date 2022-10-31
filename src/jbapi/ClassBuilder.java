@@ -14,7 +14,7 @@ public class ClassBuilder
 
     private int version = 63;
     private String name;
-    private String extending;
+    private String extending = "java/lang/Object";
     private Modifier[] modifiers;
     private String[] interfaces;
     private final List<FieldBuilder> fields = new ArrayList<>();
