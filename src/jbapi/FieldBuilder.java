@@ -8,6 +8,7 @@ public class FieldBuilder
     }
 
     private String name;
+    private String type;
 
     private FieldBuilder()
     {
@@ -17,6 +18,12 @@ public class FieldBuilder
     public FieldBuilder name(String name)
     {
         this.name = name;
+        return this;
+    }
+
+    public FieldBuilder type(String type)
+    {
+        this.type = type;
         return this;
     }
 }
