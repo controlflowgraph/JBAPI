@@ -24,6 +24,11 @@ public class FieldBuilder
         return this;
     }
 
+    public FieldBuilder type(Class<?> cls)
+    {
+        return type(cls);
+    }
+
     public FieldBuilder type(String type)
     {
         this.type = type;
