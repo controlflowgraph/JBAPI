@@ -5,6 +5,8 @@ import org.objectweb.asm.MethodVisitor;
 import java.util.ArrayList;
 import java.util.List;
 
+import static jbapi.TypeUtil.arg;
+import static jbapi.TypeUtil.type;
 import static org.objectweb.asm.Opcodes.*;
 
 public class CodeBuilder
@@ -19,6 +21,20 @@ public class CodeBuilder
     private CodeBuilder()
     {
 
+    }
+
+    public CodeBuilder getStatic(Class<?> cls, String field)
+    {
+        String t;
+        try
+        {
+            t = arg(cls.getDeclaredField(field).getType());
+        }
+        catch (NoSuchFieldException e)
+        {
+            throw new RuntimeException(e);
+        }
+        return getStatic(type(cls), field, t);
     }
 
     public CodeBuilder getStatic(String cls, String field, String type)
