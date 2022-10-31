@@ -12,7 +12,7 @@ public class ClassBuilder
         return new ClassBuilder();
     }
 
-    private int version;
+    private int version = 63;
     private String name;
     private String extending;
     private Modifier[] modifiers;
