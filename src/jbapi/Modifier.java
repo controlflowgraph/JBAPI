@@ -17,4 +17,17 @@ public enum Modifier
     {
         this.value = value;
     }
+
+    public static int merge(Modifier ... modifiers)
+    {
+        if(modifiers == null)
+            return 0;
+
+        int value = 0;
+        for (Modifier modifier : modifiers)
+        {
+            value |= modifier.value;
+        }
+        return value;
+    }
 }
