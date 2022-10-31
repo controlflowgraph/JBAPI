@@ -85,6 +85,12 @@ public class CodeBuilder
                 String signature = i.arguments().getAs(String.class, 2);
                 method.visitMethodInsn(INVOKEVIRTUAL, cls, name, signature);
             }
+            case "invoke-special" -> {
+                String cls = i.arguments().getAs(String.class, 0);
+                String name = i.arguments().getAs(String.class, 1);
+                String type = i.arguments().getAs(String.class, 2);
+                method.visitMethodInsn(INVOKESPECIAL, cls, name, type);
+            }
             case "return" -> method.visitInsn(RETURN);
             case "aload" -> method.visitVarInsn(ALOAD, i.arguments().getAs(Integer.class, 0));
             default -> throw new RuntimeException("Unknown instruction '" + i.mnemonic() + "'!");
