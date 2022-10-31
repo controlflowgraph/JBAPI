@@ -41,6 +41,12 @@ public class CodeBuilder
         return add("return");
     }
 
+    public CodeBuilder aload(int index)
+    {
+        add("aload", index);
+        return this;
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
