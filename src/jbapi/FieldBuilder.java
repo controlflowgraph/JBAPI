@@ -7,8 +7,16 @@ public class FieldBuilder
         return new FieldBuilder();
     }
 
+    private String name;
+
     private FieldBuilder()
     {
 
+    }
+
+    public FieldBuilder name(String name)
+    {
+        this.name = name;
+        return this;
     }
 }
