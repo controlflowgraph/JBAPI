@@ -39,7 +39,7 @@ public class ClassBuilder
 
     public ClassBuilder extending(String name)
     {
-        this.extending = extending;
+        this.extending = name;
         return this;
     }
 
