@@ -1,7 +1,11 @@
 package jbapi;
 
+import org.objectweb.asm.MethodVisitor;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.objectweb.asm.Opcodes.*;
 
 public class CodeBuilder
 {
@@ -47,5 +51,15 @@ public class CodeBuilder
     {
         this.instructions.add(new Instruction(mnemonic, values));
         return this;
+    }
+
+    public void generate(MethodVisitor method)
+    {
+        method.visitCode();
+        this.instructions.forEach(i -> { switch (i.mnemonic())
+        {
+            case "" -> {}
+            default -> throw new RuntimeException("Unknown instruction '" + i.mnemonic() + "'!");
+        }});
     }
 }
