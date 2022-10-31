@@ -32,6 +32,11 @@ public class CodeBuilder
         return add("invoke-virtual", cls, name, signature);
     }
 
+    public CodeBuilder ret()
+    {
+        return add("return");
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
