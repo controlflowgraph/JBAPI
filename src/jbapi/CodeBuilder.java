@@ -74,6 +74,7 @@ public class CodeBuilder
                 String signature = i.arguments().getAs(String.class, 2);
                 method.visitMethodInsn(INVOKEVIRTUAL, cls, name, signature);
             }
+            case "return" -> method.visitInsn(RETURN);
             default -> throw new RuntimeException("Unknown instruction '" + i.mnemonic() + "'!");
         }});
     }
