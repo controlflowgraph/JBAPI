@@ -22,6 +22,11 @@ public class CodeBuilder
         return add("getstatic", cls, field, type);
     }
 
+    public CodeBuilder constant(String value)
+    {
+        return add("load-string-constant", value);
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
