@@ -9,6 +9,7 @@ public class ClassBuilder
 
     private int version;
     private String name;
+    private String extending;
     private Modifier[] modifiers;
     private String[] interfaces;
 
@@ -24,6 +25,12 @@ public class ClassBuilder
     }
 
     public ClassBuilder name(String name)
+    {
+        this.name = name;
+        return this;
+    }
+
+    public ClassBuilder extending(String name)
     {
         this.name = name;
         return this;
