@@ -1,5 +1,8 @@
 package jbapi;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MethodBuilder
 {
     public static MethodBuilder builder()
@@ -10,6 +13,7 @@ public class MethodBuilder
     private String name;
     private String result;
     private Modifier[] modifiers;
+    private final List<String> parameters = new ArrayList<>();
 
     private MethodBuilder()
     {
@@ -31,6 +35,12 @@ public class MethodBuilder
     public MethodBuilder modifiers(Modifier ... modifiers)
     {
         this.modifiers = modifiers;
+        return this;
+    }
+
+    public MethodBuilder parameter(String cls)
+    {
+        this.parameters.add(cls);
         return this;
     }
 }
