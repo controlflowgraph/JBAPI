@@ -66,4 +66,13 @@ public class ClassBuilder
         this.methods.add(builder);
         return builder;
     }
+
+    public MethodBuilder constructor()
+    {
+        MethodBuilder builder = MethodBuilder.builder()
+                .name("<init>")
+                .result("V");
+        this.methods.add(builder);
+        return builder;
+    }
 }
