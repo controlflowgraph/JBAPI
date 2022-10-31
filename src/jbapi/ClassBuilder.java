@@ -1,5 +1,8 @@
 package jbapi;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ClassBuilder
 {
     public static ClassBuilder builder()
@@ -12,6 +15,7 @@ public class ClassBuilder
     private String extending;
     private Modifier[] modifiers;
     private String[] interfaces;
+    private final List<FieldBuilder> fields = new ArrayList<>();
 
     private ClassBuilder()
     {
@@ -46,5 +50,10 @@ public class ClassBuilder
     {
         this.interfaces = name;
         return this;
+    }
+
+    public FieldBuilder field()
+    {
+        return FieldBuilder.builder();
     }
 }
