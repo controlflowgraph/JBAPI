@@ -9,6 +9,7 @@ public class FieldBuilder
 
     private String name;
     private String type;
+    private Modifier[] modifiers;
 
     private FieldBuilder()
     {
@@ -24,6 +25,12 @@ public class FieldBuilder
     public FieldBuilder type(String type)
     {
         this.type = type;
+        return this;
+    }
+
+    public FieldBuilder modifiers(Modifier ... modifiers)
+    {
+        this.modifiers = modifiers;
         return this;
     }
 }
