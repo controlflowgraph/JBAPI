@@ -44,6 +44,25 @@ public class MethodBuilder
         return this;
     }
 
+    public MethodBuilder parameters(Class<?> ... cls)
+    {
+        String[] args = new String[cls.length];
+        for (int i = 0; i < cls.length; i++)
+        {
+            args[i] = arg(cls[i]);
+        }
+        return parameters(args);
+    }
+
+    public MethodBuilder parameters(String ... args)
+    {
+        for (String arg : args)
+        {
+            parameter(arg);
+        }
+        return this;
+    }
+
     public MethodBuilder parameter(Class<?> cls)
     {
         return parameter(arg(cls));
