@@ -14,6 +14,7 @@ public class MethodBuilder
     private String result;
     private Modifier[] modifiers;
     private final List<String> parameters = new ArrayList<>();
+    private CodeBuilder code;
 
     private MethodBuilder()
     {
@@ -42,5 +43,10 @@ public class MethodBuilder
     {
         this.parameters.add(cls);
         return this;
+    }
+
+    public CodeBuilder code()
+    {
+        return this.code = CodeBuilder.builder();
     }
 }
