@@ -68,6 +68,12 @@ public class CodeBuilder
                 String value = i.arguments().getAs(String.class, 0);
                 method.visitLdcInsn(value);
             }
+            case "invoke-virtual" -> {
+                String cls = i.arguments().getAs(String.class, 0);
+                String name = i.arguments().getAs(String.class, 1);
+                String signature = i.arguments().getAs(String.class, 2);
+                method.visitMethodInsn(INVOKEVIRTUAL, cls, name, signature);
+            }
             default -> throw new RuntimeException("Unknown instruction '" + i.mnemonic() + "'!");
         }});
     }
