@@ -16,7 +16,7 @@ public class MethodBuilder
     }
 
     private String name;
-    private String result;
+    private String result = "V";
     private Modifier[] modifiers;
     private final List<String> parameters = new ArrayList<>();
     private CodeBuilder code;
