@@ -7,8 +7,16 @@ public class MethodBuilder
         return new MethodBuilder();
     }
 
+    private String name;
+
     private MethodBuilder()
     {
 
+    }
+
+    public MethodBuilder name(String name)
+    {
+        this.name = name;
+        return this;
     }
 }
