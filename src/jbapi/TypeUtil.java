@@ -50,4 +50,9 @@ public class TypeUtil
                 .replaceAll("[^\\[]", "")
                 .length();
     }
+
+    private TypeUtil()
+    {
+
+    }
 }
