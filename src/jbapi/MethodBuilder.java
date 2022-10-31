@@ -1,5 +1,8 @@
 package jbapi;
 
+import org.objectweb.asm.ClassWriter;
+import org.objectweb.asm.MethodVisitor;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,5 +51,15 @@ public class MethodBuilder
     public CodeBuilder code()
     {
         return this.code = CodeBuilder.builder();
+    }
+
+    public void generate(ClassWriter writer)
+    {
+        int mod = Modifier.merge(this.modifiers);
+        String reduce = String.join("", this.parameters);
+        MethodVisitor method = writer.visitMethod(mod, this.name, "(" + reduce + ")" + this.result, null, null);
+        this.code.generate(method);
+        method.visitMaxs(0, 0);
+        method.visitEnd();
     }
 }
