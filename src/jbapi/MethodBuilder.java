@@ -6,6 +6,8 @@ import org.objectweb.asm.MethodVisitor;
 import java.util.ArrayList;
 import java.util.List;
 
+import static jbapi.TypeUtil.arg;
+
 public class MethodBuilder
 {
     public static MethodBuilder builder()
@@ -40,6 +42,11 @@ public class MethodBuilder
     {
         this.modifiers = modifiers;
         return this;
+    }
+
+    public MethodBuilder parameter(Class<?> cls)
+    {
+        return parameter(arg(cls));
     }
 
     public MethodBuilder parameter(String cls)
