@@ -113,6 +113,11 @@ public class CodeBuilder
         return add("jump-greater-equal", label);
     }
 
+    public CodeBuilder iinc(int index, int constant)
+    {
+        return add("increment-integer", index, constant);
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
