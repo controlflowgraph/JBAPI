@@ -153,6 +153,11 @@ public class CodeBuilder
         return add("sub-float");
     }
 
+    public CodeBuilder fmul()
+    {
+        return add("mul-float");
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
