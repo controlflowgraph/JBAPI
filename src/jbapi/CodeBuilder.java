@@ -70,8 +70,7 @@ public class CodeBuilder
 
     public CodeBuilder constant(int i)
     {
-        this.instructions.add(new Instruction("load-integer-constant", i));
-        return this;
+        return add("load-integer-constant", i);
     }
 
     public Label[] labels(int amount)
