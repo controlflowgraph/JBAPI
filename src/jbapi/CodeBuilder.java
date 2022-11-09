@@ -183,6 +183,11 @@ public class CodeBuilder
         return add("div-long");
     }
 
+    public CodeBuilder dadd()
+    {
+        return add("add-double");
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
