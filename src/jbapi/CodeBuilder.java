@@ -133,6 +133,11 @@ public class CodeBuilder
         return add("sub-integer");
     }
 
+    public CodeBuilder imul()
+    {
+        return add("mul-integer");
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
