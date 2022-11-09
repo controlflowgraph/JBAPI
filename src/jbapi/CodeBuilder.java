@@ -95,6 +95,10 @@ public class CodeBuilder
                 String value = i.arguments().getAs(String.class, 0);
                 method.visitLdcInsn(value);
             }
+            case "load-integer-constant" -> {
+                int value = i.arguments().getAs(Integer.class, 0);
+                method.visitLdcInsn(value);
+            }
             case "invoke-virtual" -> {
                 String cls = i.arguments().getAs(String.class, 0);
                 String name = i.arguments().getAs(String.class, 1);
