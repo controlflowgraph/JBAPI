@@ -136,6 +136,10 @@ public class CodeBuilder
                 String type = i.arguments().getAs(String.class, 2);
                 method.visitFieldInsn(GETSTATIC, cls, name, type);
             }
+            case "jump-greater-equal" -> {
+                Label label = i.arguments().getAs(Label.class, 0);
+                method.visitJumpInsn(IF_ICMPGE, label.get());
+            }
             case "push-byte-as-integer" -> {
                 int value = i.arguments().getAs(Integer.class, 0);
                 method.visitIntInsn(BIPUSH, value);
