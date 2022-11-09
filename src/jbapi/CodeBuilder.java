@@ -89,6 +89,11 @@ public class CodeBuilder
         return new Label();
     }
 
+    public CodeBuilder storeInt(int i)
+    {
+        return add("store-integer", i);
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
