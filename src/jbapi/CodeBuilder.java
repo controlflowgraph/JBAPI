@@ -52,7 +52,7 @@ public class CodeBuilder
         return add("invoke-virtual", cls, name, signature);
     }
 
-    public CodeBuilder ret()
+    public CodeBuilder vreturn()
     {
         return add("return");
     }
