@@ -143,6 +143,11 @@ public class CodeBuilder
         return add("div-integer");
     }
 
+    public CodeBuilder fadd()
+    {
+        return add("add-float");
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
