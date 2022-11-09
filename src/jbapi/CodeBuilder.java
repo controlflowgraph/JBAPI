@@ -98,6 +98,11 @@ public class CodeBuilder
         return add("store-integer", i);
     }
 
+    public CodeBuilder iload(int i)
+    {
+        return add("load-integer", i);
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
