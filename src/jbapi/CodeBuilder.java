@@ -68,6 +68,12 @@ public class CodeBuilder
         return add("invoke-special", cls, name, signature);
     }
 
+    public CodeBuilder constant(int i)
+    {
+        this.instructions.add(new Instruction("load-integer-constant", i));
+        return this;
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
@@ -115,11 +121,5 @@ public class CodeBuilder
             case "aload" -> method.visitVarInsn(ALOAD, i.arguments().getAs(Integer.class, 0));
             default -> throw new RuntimeException("Unknown instruction '" + i.mnemonic() + "'!");
         }});
-    }
-
-    public CodeBuilder constant(int i)
-    {
-        this.instructions.add(new Instruction("load-integer-constant", i));
-        return this;
     }
 }
