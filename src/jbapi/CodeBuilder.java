@@ -88,7 +88,7 @@ public class CodeBuilder
         return new Label();
     }
 
-    public CodeBuilder storeInt(int i)
+    public CodeBuilder istore(int i)
     {
         return add("store-integer", i);
     }
