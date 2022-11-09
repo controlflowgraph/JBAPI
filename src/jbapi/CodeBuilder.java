@@ -74,6 +74,11 @@ public class CodeBuilder
         return this;
     }
 
+    public Label label()
+    {
+        return new Label();
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
