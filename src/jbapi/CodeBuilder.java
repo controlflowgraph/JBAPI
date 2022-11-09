@@ -147,7 +147,7 @@ public class CodeBuilder
         {
             case "increment-integer" -> {
                 int index = i.arguments().getAs(Integer.class, 0);
-                int constant = i.arguments().getAs(Integer.class, 0);
+                int constant = i.arguments().getAs(Integer.class, 1);
                 method.visitIincInsn(index, constant);
             }
             case "getstatic" -> {
