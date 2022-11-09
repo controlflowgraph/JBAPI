@@ -73,17 +73,17 @@ public class CodeBuilder
         return add("load-integer-constant", i);
     }
 
-    public Label[] labels(int amount)
+    public Label[] getLabels(int amount)
     {
         Label[] labels = new Label[amount];
         for (int i = 0; i < amount; i++)
         {
-            labels[i] = label();
+            labels[i] = getLabel();
         }
         return labels;
     }
 
-    public Label label()
+    public Label getLabel()
     {
         return new Label();
     }
