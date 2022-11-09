@@ -108,6 +108,11 @@ public class CodeBuilder
         return add("push-byte-as-integer", i);
     }
 
+    public CodeBuilder jmpge(Label label)
+    {
+        return add("jump-greated-equal", label);
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
