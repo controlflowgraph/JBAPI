@@ -135,6 +135,11 @@ public class CodeBuilder
         method.visitCode();
         this.instructions.forEach(i -> { switch (i.mnemonic())
         {
+            case "increment-integer" -> {
+                int index = i.arguments().getAs(Integer.class, 0);
+                int constant = i.arguments().getAs(Integer.class, 0);
+                method.visitIincInsn(index, constant);
+            }
             case "getstatic" -> {
                 String cls = i.arguments().getAs(String.class, 0);
                 String name = i.arguments().getAs(String.class, 1);
