@@ -123,6 +123,11 @@ public class CodeBuilder
         return add("increment-integer", index, constant);
     }
 
+    public CodeBuilder iadd()
+    {
+        return add("add-integer");
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
