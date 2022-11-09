@@ -138,6 +138,10 @@ public class CodeBuilder
                 int index = i.arguments().getAs(Integer.class, 0);
                 method.visitVarInsn(ISTORE, index);
             }
+            case "load-integer" -> {
+                int index = i.arguments().getAs(Integer.class, 0);
+                method.visitVarInsn(ILOAD, index);
+            }
             case "invoke-virtual" -> {
                 String cls = i.arguments().getAs(String.class, 0);
                 String name = i.arguments().getAs(String.class, 1);
