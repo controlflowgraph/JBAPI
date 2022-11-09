@@ -103,7 +103,7 @@ public class CodeBuilder
         return add("load-integer", i);
     }
 
-    public CodeBuilder bipush(byte i)
+    public CodeBuilder bipush(int i)
     {
         return add("push-byte-as-integer", i);
     }
@@ -132,7 +132,7 @@ public class CodeBuilder
                 method.visitFieldInsn(GETSTATIC, cls, name, type);
             }
             case "push-byte-as-integer" -> {
-                byte value = i.arguments().getAs(Byte.class, 0);
+                int value = i.arguments().getAs(Integer.class, 0);
                 method.visitIntInsn(BIPUSH, value);
             }
             case "load-string-constant" -> {
