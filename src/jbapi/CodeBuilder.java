@@ -158,6 +158,11 @@ public class CodeBuilder
         return add("mul-float");
     }
 
+    public CodeBuilder fdiv()
+    {
+        return add("div-float");
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
