@@ -264,6 +264,10 @@ public class CodeBuilder
                 int index = i.arguments().getAs(Integer.class, 0);
                 method.visitVarInsn(ILOAD, index);
             }
+            case "store-long" -> {
+                int index = i.arguments().getAs(Integer.class, 0);
+                method.visitVarInsn(LSTORE, index);
+            }
             case "invoke-virtual" -> {
                 String cls = i.arguments().getAs(String.class, 0);
                 String name = i.arguments().getAs(String.class, 1);
