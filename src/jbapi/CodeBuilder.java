@@ -178,6 +178,11 @@ public class CodeBuilder
         return add("mul-long");
     }
 
+    public CodeBuilder ldiv()
+    {
+        return add("div-long");
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
