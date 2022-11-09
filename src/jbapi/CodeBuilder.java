@@ -155,6 +155,10 @@ public class CodeBuilder
                 Label label = i.arguments().getAs(Label.class, 0);
                 method.visitJumpInsn(IF_ICMPGE, label.get());
             }
+            case "jump" -> {
+                Label label = i.arguments().getAs(Label.class, 0);
+                method.visitJumpInsn(GOTO, label.get());
+            }
             case "push-byte-as-integer" -> {
                 int value = i.arguments().getAs(Integer.class, 0);
                 method.visitIntInsn(BIPUSH, value);
