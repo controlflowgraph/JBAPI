@@ -112,4 +112,10 @@ public class CodeBuilder
             default -> throw new RuntimeException("Unknown instruction '" + i.mnemonic() + "'!");
         }});
     }
+
+    public CodeBuilder constant(int i)
+    {
+        this.instructions.add(new Instruction("load-integer-constant", i));
+        return this;
+    }
 }
