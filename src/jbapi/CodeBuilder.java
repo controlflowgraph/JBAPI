@@ -261,6 +261,7 @@ public class CodeBuilder
             case "div-float" -> method.visitInsn(FDIV);
             case "add-long" -> method.visitInsn(LADD);
             case "sub-long" -> method.visitInsn(LSUB);
+            case "mul-long" -> method.visitInsn(LMUL);
             case "return" -> method.visitInsn(RETURN);
             case "aload" -> method.visitVarInsn(ALOAD, i.arguments().getAs(Integer.class, 0));
             case "define-label" -> {
