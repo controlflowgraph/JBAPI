@@ -128,6 +128,11 @@ public class CodeBuilder
         return add("add-integer");
     }
 
+    public CodeBuilder isub()
+    {
+        return add("sub-integer");
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
