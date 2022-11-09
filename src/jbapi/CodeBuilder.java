@@ -188,6 +188,11 @@ public class CodeBuilder
         return add("add-double");
     }
 
+    public CodeBuilder dsub()
+    {
+        return add("sub-double");
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
