@@ -173,6 +173,11 @@ public class CodeBuilder
         return add("sub-long");
     }
 
+    public CodeBuilder lmul()
+    {
+        return add("mul-long");
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
