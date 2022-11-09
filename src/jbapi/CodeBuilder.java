@@ -103,6 +103,11 @@ public class CodeBuilder
         return add("load-integer", i);
     }
 
+    public CodeBuilder bipush(byte i)
+    {
+        return add("push-byte-as-integer", i);
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
