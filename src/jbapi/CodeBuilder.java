@@ -198,6 +198,11 @@ public class CodeBuilder
         return add("mul-double");
     }
 
+    public CodeBuilder ddiv()
+    {
+        return add("div-double");
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
