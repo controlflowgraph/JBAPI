@@ -138,6 +138,11 @@ public class CodeBuilder
         return add("mul-integer");
     }
 
+    public CodeBuilder idiv()
+    {
+        return add("div-integer");
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
