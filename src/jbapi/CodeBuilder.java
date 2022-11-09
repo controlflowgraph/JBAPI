@@ -110,7 +110,7 @@ public class CodeBuilder
 
     public CodeBuilder jmpge(Label label)
     {
-        return add("jump-greated-equal", label);
+        return add("jump-greater-equal", label);
     }
 
     private CodeBuilder add(String mnemonic)
