@@ -74,6 +74,16 @@ public class CodeBuilder
         return this;
     }
 
+    public Label[] labels(int amount)
+    {
+        Label[] labels = new Label[amount];
+        for (int i = 0; i < amount; i++)
+        {
+            labels[i] = label();
+        }
+        return labels;
+    }
+
     public Label label()
     {
         return new Label();
