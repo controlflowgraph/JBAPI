@@ -163,6 +163,11 @@ public class CodeBuilder
         return add("div-float");
     }
 
+    public CodeBuilder ladd()
+    {
+        return add("add-long");
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
