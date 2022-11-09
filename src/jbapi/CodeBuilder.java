@@ -193,6 +193,11 @@ public class CodeBuilder
         return add("sub-double");
     }
 
+    public CodeBuilder dmul()
+    {
+        return add("mul-double");
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
