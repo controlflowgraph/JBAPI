@@ -108,6 +108,11 @@ public class CodeBuilder
         return add("store-long", i);
     }
 
+    public CodeBuilder lload(int i)
+    {
+        return add("load-long", i);
+    }
+
     public CodeBuilder bipush(int i)
     {
         return add("push-byte-as-integer", i);
