@@ -147,6 +147,10 @@ public class CodeBuilder
             }
             case "return" -> method.visitInsn(RETURN);
             case "aload" -> method.visitVarInsn(ALOAD, i.arguments().getAs(Integer.class, 0));
+            case "define-label" -> {
+                Label label = i.arguments().getAs(Label.class, 0);
+                method.visitLabel(label.get());
+            }
             default -> throw new RuntimeException("Unknown instruction '" + i.mnemonic() + "'!");
         }});
     }
