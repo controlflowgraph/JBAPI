@@ -168,6 +168,11 @@ public class CodeBuilder
         return add("add-long");
     }
 
+    public CodeBuilder lsub()
+    {
+        return add("sub-long");
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
