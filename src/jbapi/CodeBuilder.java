@@ -131,6 +131,10 @@ public class CodeBuilder
                 String type = i.arguments().getAs(String.class, 2);
                 method.visitFieldInsn(GETSTATIC, cls, name, type);
             }
+            case "push-byte-as-integer" -> {
+                byte value = i.arguments().getAs(Byte.class, 0);
+                method.visitIntInsn(BIPUSH, value);
+            }
             case "load-string-constant" -> {
                 String value = i.arguments().getAs(String.class, 0);
                 method.visitLdcInsn(value);
