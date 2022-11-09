@@ -148,6 +148,11 @@ public class CodeBuilder
         return add("add-float");
     }
 
+    public CodeBuilder fsub()
+    {
+        return add("sub-float");
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
