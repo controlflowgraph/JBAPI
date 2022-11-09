@@ -196,6 +196,7 @@ public class CodeBuilder
                 String type = i.arguments().getAs(String.class, 2);
                 method.visitMethodInsn(INVOKESPECIAL, cls, name, type);
             }
+            case "add-integer" -> method.visitInsn(IADD);
             case "return" -> method.visitInsn(RETURN);
             case "aload" -> method.visitVarInsn(ALOAD, i.arguments().getAs(Integer.class, 0));
             case "define-label" -> {
