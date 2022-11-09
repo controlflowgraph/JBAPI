@@ -284,6 +284,7 @@ public class CodeBuilder
             case "mul-long" -> method.visitInsn(LMUL);
             case "div-long" -> method.visitInsn(LDIV);
             case "add-double" -> method.visitInsn(DADD);
+            case "sub-double" -> method.visitInsn(DSUB);
             case "return" -> method.visitInsn(RETURN);
             case "aload" -> method.visitVarInsn(ALOAD, i.arguments().getAs(Integer.class, 0));
             case "define-label" -> {
