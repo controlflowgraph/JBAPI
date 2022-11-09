@@ -88,6 +88,11 @@ public class CodeBuilder
         return new Label();
     }
 
+    public CodeBuilder label(Label label)
+    {
+        return add("define-label", label);
+    }
+
     public CodeBuilder istore(int i)
     {
         return add("store-integer", i);
