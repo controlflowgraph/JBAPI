@@ -62,6 +62,11 @@ public class CodeBuilder
         return add("invoke-interface", cls, name, signature);
     }
 
+    public CodeBuilder callStatic(String cls, String name, String signature)
+    {
+        return add("invoke-static", cls, name, signature);
+    }
+
     public CodeBuilder vreturn()
     {
         return add("return");
@@ -353,6 +358,12 @@ public class CodeBuilder
                 String name = i.arguments().getAs(String.class, 1);
                 String type = i.arguments().getAs(String.class, 2);
                 method.visitMethodInsn(INVOKEINTERFACE, cls, name, type, true);
+            }
+            case "invoke-static" -> {
+                String cls = i.arguments().getAs(String.class, 0);
+                String name = i.arguments().getAs(String.class, 1);
+                String type = i.arguments().getAs(String.class, 2);
+                method.visitMethodInsn(INVOKESTATIC, cls, name, type, false);
             }
             case "invoke-special" -> {
                 String cls = i.arguments().getAs(String.class, 0);
