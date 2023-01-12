@@ -118,9 +118,9 @@ public class CodeBuilder
         return add("push-byte-as-integer", i);
     }
 
-    public CodeBuilder jmpge(Label label)
+    public CodeBuilder ijmpge(Label label)
     {
-        return add("jump-greater-equal", label);
+        return add("integer-jump-greater-equal", label);
     }
 
     public CodeBuilder jmp(Label label)
@@ -296,7 +296,7 @@ public class CodeBuilder
                 String type = i.arguments().getAs(String.class, 2);
                 method.visitFieldInsn(GETSTATIC, cls, name, type);
             }
-            case "jump-greater-equal" -> {
+            case "integer-jump-greater-equal" -> {
                 Label label = i.arguments().getAs(Label.class, 0);
                 method.visitJumpInsn(IF_ICMPGE, label.get());
             }
