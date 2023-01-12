@@ -258,6 +258,11 @@ public class CodeBuilder
         return add("new-object-array", name);
     }
 
+    public CodeBuilder astore(int i)
+    {
+        return add("astore", i);
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
@@ -361,6 +366,7 @@ public class CodeBuilder
             case "new-object-array" -> method.visitTypeInsn(ANEWARRAY, i.arguments().getAs(String.class, 0));
             case "return" -> method.visitInsn(RETURN);
             case "aload" -> method.visitVarInsn(ALOAD, i.arguments().getAs(Integer.class, 0));
+            case "astore" -> method.visitVarInsn(ASTORE, i.arguments().getAs(Integer.class, 0));
             case "define-label" -> {
                 Label label = i.arguments().getAs(Label.class, 0);
                 method.visitLabel(label.get());
