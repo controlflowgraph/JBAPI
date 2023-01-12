@@ -298,6 +298,46 @@ public class CodeBuilder
         return add("new-object-array", name);
     }
 
+    public CodeBuilder baload()
+    {
+        return add("baload");
+    }
+
+    public CodeBuilder saload()
+    {
+        return add("saload");
+    }
+
+    public CodeBuilder iaload()
+    {
+        return add("iaload");
+    }
+
+    public CodeBuilder laload()
+    {
+        return add("laload");
+    }
+
+    public CodeBuilder faload()
+    {
+        return add("faload");
+    }
+
+    public CodeBuilder daload()
+    {
+        return add("daload");
+    }
+
+    public CodeBuilder caload()
+    {
+        return add("caload");
+    }
+
+    public CodeBuilder aaload()
+    {
+        return add("aaload");
+    }
+
     public CodeBuilder bastore()
     {
         return add("bastore");
@@ -492,6 +532,14 @@ public class CodeBuilder
             case "dastore" -> method.visitInsn(DASTORE);
             case "castore" -> method.visitInsn(CASTORE);
             case "aastore" -> method.visitInsn(AASTORE);
+            case "baload" -> method.visitInsn(BALOAD);
+            case "saload" -> method.visitInsn(SALOAD);
+            case "iaload" -> method.visitInsn(IALOAD);
+            case "laload" -> method.visitInsn(LALOAD);
+            case "faload" -> method.visitInsn(FALOAD);
+            case "daload" -> method.visitInsn(DALOAD);
+            case "caload" -> method.visitInsn(CALOAD);
+            case "aaload" -> method.visitInsn(AALOAD);
             case "define-label" -> {
                 Label label = i.arguments().getAs(Label.class, 0);
                 method.visitLabel(label.get());
