@@ -263,6 +263,11 @@ public class CodeBuilder
         return add("astore", i);
     }
 
+    public CodeBuilder line(int i)
+    {
+        return add("line", i);
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
@@ -370,6 +375,12 @@ public class CodeBuilder
             case "define-label" -> {
                 Label label = i.arguments().getAs(Label.class, 0);
                 method.visitLabel(label.get());
+            }
+            case "line" -> {
+                int line = i.arguments().getAs(Integer.class, 0);
+                org.objectweb.asm.Label l = new org.objectweb.asm.Label();
+                method.visitLabel(l);
+                method.visitLineNumber(line, l);
             }
             default -> throw new RuntimeException("Unknown instruction '" + i.mnemonic() + "'!");
         }});
