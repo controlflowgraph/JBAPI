@@ -213,6 +213,51 @@ public class CodeBuilder
         return add("div-double");
     }
 
+    public CodeBuilder newByteArray()
+    {
+        return add("new-byte-array");
+    }
+
+    public CodeBuilder newShortArray()
+    {
+        return add("new-short-array");
+    }
+
+    public CodeBuilder newIntArray()
+    {
+        return add("new-int-array");
+    }
+
+    public CodeBuilder newLongArray()
+    {
+        return add("new-long-array");
+    }
+
+    public CodeBuilder newFloatArray()
+    {
+        return add("new-float-array");
+    }
+
+    public CodeBuilder newDoubleArray()
+    {
+        return add("new-double-array");
+    }
+
+    public CodeBuilder newCharArray()
+    {
+        return add("new-char-array");
+    }
+
+    public CodeBuilder newBooleanArray()
+    {
+        return add("new-boolean-array");
+    }
+
+    public CodeBuilder newObjectArray(String name)
+    {
+        return add("new-object-array", name);
+    }
+
     private CodeBuilder add(String mnemonic)
     {
         this.instructions.add(new Instruction(mnemonic));
@@ -305,6 +350,15 @@ public class CodeBuilder
             case "sub-double" -> method.visitInsn(DSUB);
             case "mul-double" -> method.visitInsn(DMUL);
             case "div-double" -> method.visitInsn(DDIV);
+            case "new-byte-array" -> method.visitIntInsn(NEWARRAY, T_BYTE);
+            case "new-short-array" -> method.visitIntInsn(NEWARRAY, T_SHORT);
+            case "new-int-array" -> method.visitIntInsn(NEWARRAY, T_INT);
+            case "new-long-array" -> method.visitIntInsn(NEWARRAY, T_LONG);
+            case "new-float-array" -> method.visitIntInsn(NEWARRAY, T_FLOAT);
+            case "new-double-array" -> method.visitIntInsn(NEWARRAY, T_DOUBLE);
+            case "new-char-array" -> method.visitIntInsn(NEWARRAY, T_CHAR);
+            case "new-boolean-array" -> method.visitIntInsn(NEWARRAY, T_BOOLEAN);
+            case "new-object-array" -> method.visitTypeInsn(ANEWARRAY, i.arguments().getAs(String.class, 0));
             case "return" -> method.visitInsn(RETURN);
             case "aload" -> method.visitVarInsn(ALOAD, i.arguments().getAs(Integer.class, 0));
             case "define-label" -> {
