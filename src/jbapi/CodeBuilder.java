@@ -49,7 +49,17 @@ public class CodeBuilder
 
     public CodeBuilder call(String cls, String name, String signature)
     {
+        return callVirtual(cls, name, signature);
+    }
+
+    public CodeBuilder callVirtual(String cls, String name, String signature)
+    {
         return add("invoke-virtual", cls, name, signature);
+    }
+
+    public CodeBuilder callInterface(String cls, String name, String signature)
+    {
+        return add("invoke-interface", cls, name, signature);
     }
 
     public CodeBuilder vreturn()
@@ -336,13 +346,19 @@ public class CodeBuilder
                 String cls = i.arguments().getAs(String.class, 0);
                 String name = i.arguments().getAs(String.class, 1);
                 String signature = i.arguments().getAs(String.class, 2);
-                method.visitMethodInsn(INVOKEVIRTUAL, cls, name, signature);
+                method.visitMethodInsn(INVOKEVIRTUAL, cls, name, signature, false);
+            }
+            case "invoke-interface" -> {
+                String cls = i.arguments().getAs(String.class, 0);
+                String name = i.arguments().getAs(String.class, 1);
+                String type = i.arguments().getAs(String.class, 2);
+                method.visitMethodInsn(INVOKEINTERFACE, cls, name, type, true);
             }
             case "invoke-special" -> {
                 String cls = i.arguments().getAs(String.class, 0);
                 String name = i.arguments().getAs(String.class, 1);
                 String type = i.arguments().getAs(String.class, 2);
-                method.visitMethodInsn(INVOKESPECIAL, cls, name, type);
+                method.visitMethodInsn(INVOKESPECIAL, cls, name, type, false);
             }
             case "add-integer" -> method.visitInsn(IADD);
             case "sub-integer" -> method.visitInsn(ISUB);
