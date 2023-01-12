@@ -128,6 +128,26 @@ public class CodeBuilder
         return add("load-long", i);
     }
 
+    public CodeBuilder fstore(int i)
+    {
+        return add("store-float", i);
+    }
+
+    public CodeBuilder fload(int i)
+    {
+        return add("load-float", i);
+    }
+
+    public CodeBuilder dstore(int i)
+    {
+        return add("store-double", i);
+    }
+
+    public CodeBuilder dload(int i)
+    {
+        return add("load-double", i);
+    }
+
     public CodeBuilder bipush(int i)
     {
         return add("push-byte-as-integer", i);
@@ -386,6 +406,22 @@ public class CodeBuilder
             case "load-long" -> {
                 int index = i.arguments().getAs(Integer.class, 0);
                 method.visitVarInsn(LLOAD, index);
+            }
+            case "store-float" -> {
+                int index = i.arguments().getAs(Integer.class, 0);
+                method.visitVarInsn(FSTORE, index);
+            }
+            case "load-float" -> {
+                int index = i.arguments().getAs(Integer.class, 0);
+                method.visitVarInsn(FLOAD, index);
+            }
+            case "store-double" -> {
+                int index = i.arguments().getAs(Integer.class, 0);
+                method.visitVarInsn(DSTORE, index);
+            }
+            case "load-double" -> {
+                int index = i.arguments().getAs(Integer.class, 0);
+                method.visitVarInsn(DLOAD, index);
             }
             case "invoke-virtual" -> {
                 String cls = i.arguments().getAs(String.class, 0);
