@@ -273,6 +273,46 @@ public class CodeBuilder
         return add("new-object-array", name);
     }
 
+    public CodeBuilder bastore()
+    {
+        return add("bastore");
+    }
+
+    public CodeBuilder sastore()
+    {
+        return add("sastore");
+    }
+
+    public CodeBuilder iastore()
+    {
+        return add("iastore");
+    }
+
+    public CodeBuilder lastore()
+    {
+        return add("lastore");
+    }
+
+    public CodeBuilder fastore()
+    {
+        return add("fastore");
+    }
+
+    public CodeBuilder dastore()
+    {
+        return add("dastore");
+    }
+
+    public CodeBuilder castore()
+    {
+        return add("castore");
+    }
+
+    public CodeBuilder aastore()
+    {
+        return add("aastore");
+    }
+
     public CodeBuilder astore(int i)
     {
         return add("astore", i);
@@ -399,6 +439,14 @@ public class CodeBuilder
             case "return" -> method.visitInsn(RETURN);
             case "aload" -> method.visitVarInsn(ALOAD, i.arguments().getAs(Integer.class, 0));
             case "astore" -> method.visitVarInsn(ASTORE, i.arguments().getAs(Integer.class, 0));
+            case "bastore" -> method.visitInsn(BASTORE);
+            case "sastore" -> method.visitInsn(SASTORE);
+            case "iastore" -> method.visitInsn(IASTORE);
+            case "lastore" -> method.visitInsn(LASTORE);
+            case "fastore" -> method.visitInsn(FASTORE);
+            case "dastore" -> method.visitInsn(DASTORE);
+            case "castore" -> method.visitInsn(CASTORE);
+            case "aastore" -> method.visitInsn(AASTORE);
             case "define-label" -> {
                 Label label = i.arguments().getAs(Label.class, 0);
                 method.visitLabel(label.get());
