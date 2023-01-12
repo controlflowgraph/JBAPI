@@ -88,6 +88,11 @@ public class CodeBuilder
         return add("load-integer-constant", i);
     }
 
+    public CodeBuilder constant(double d)
+    {
+        return add("load-double-constant", d);
+    }
+
     public Label[] getLabels(int amount)
     {
         Label[] labels = new Label[amount];
@@ -385,6 +390,10 @@ public class CodeBuilder
             }
             case "load-string-constant" -> {
                 String value = i.arguments().getAs(String.class, 0);
+                method.visitLdcInsn(value);
+            }
+            case "load-double-constant" -> {
+                double value = i.arguments().getAs(Double.class, 0);
                 method.visitLdcInsn(value);
             }
             case "load-integer-constant" -> {
